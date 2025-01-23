@@ -21,7 +21,7 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is around {count}
         </button>
-        <p>{import.meta.env.VITE_PROJECT_ID || 'Cannot connect'}</p>
+        <p>Testing connections...</p>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
