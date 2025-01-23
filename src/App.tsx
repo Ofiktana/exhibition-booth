@@ -19,8 +19,9 @@ function App() {
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
-          count is now {count}
+          count is around {count}
         </button>
+        <p>{import.meta.env.VITE_PROJECT_ID}</p>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
