@@ -38,7 +38,7 @@ function Agenda() {
         endTime: (new Date(program.data.end.seconds * 1000)).toLocaleTimeString(),
         title: program.data.title,
         summary: program.data.summary,
-        startDate: (new Date(program.data.start.seconds * 1000)).toLocaleDateString(),
+        startDate: (new Date(program.data.start.seconds * 1000)).toDateString(),
         value: (new Date(program.data.start.seconds * 1000)).valueOf()
       }
     })
