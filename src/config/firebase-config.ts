@@ -91,8 +91,10 @@ export async function authSignOut(){
 
 export async function authUpdateProfile(firstName:string, lastName:string){
   const newDisplayName : string = `${firstName} ${lastName}`
+  const user:any = auth.currentUser
   try {
-    await updateProfile(auth.currentUser, {displayName: newDisplayName})
+  
+    await updateProfile(user, {displayName: newDisplayName})
 
   } catch (error) {
     console.log(error)
@@ -114,13 +116,13 @@ const db = getFirestore(app)
 
 export async function addNewDataToCollection(collectionName : string, data: any){
   try {
-    const docRef = await addDoc(collection(db, collectionName),{
+    const docRef:any = await addDoc(collection(db, collectionName),{
       ...data,
       createdAt: serverTimestamp()
     })
 
-    console.log(`successfully recorded new item in ${collectionName}`)
-  } catch (error) {
+    console.log(`successfully recorded new item in ${collectionName} with id: ${docRef.id}`)
+  } catch (error:any) {
     console.log(error.message)
   }
 }
@@ -128,7 +130,7 @@ export async function addNewDataToCollection(collectionName : string, data: any)
 export async function getAllDocsInCollection(collectionName : string){
 
   const querySnapshot = await getDocs(collection(db, collectionName));
-  const result = []
+  const result:any = []
   querySnapshot.forEach((doc) => {
     result.push({id: doc.id, data: doc.data()})
   })
@@ -136,13 +138,13 @@ export async function getAllDocsInCollection(collectionName : string){
   return result
 }
 
-export async function getDocsByParam(collectionName : string, queryObj){
+export async function getDocsByParam(collectionName : string, queryObj:any){
   const { field, operator, value } = queryObj
   const colRef = collection(db, collectionName)
   const q  = query(colRef, where(field, operator, value))
   const querySnapshot = await getDocs(q);
   
-  const result = []
+  const result:any = []
   querySnapshot.forEach((doc) => {
     result.push({id: doc.id, data: doc.data()})
   })
@@ -150,9 +152,9 @@ export async function getDocsByParam(collectionName : string, queryObj){
   return result
 }
 
-export async function subscribeToCollection(collectionName : string, callback){
+export async function subscribeToCollection(collectionName : string, callback:any){
 
-  const arr = []
+  const arr:any = []
 
   onSnapshot(collection(db, collectionName),(querySnapshot) => {
     querySnapshot.forEach((doc) => {
@@ -192,6 +194,7 @@ export async function subscribeToFilteredCollection(collectionName : string, par
       // Function to be defined
       // Push data into an array and call a state setter function in react
       // The data contained in the documents is accessible using doc.data()
+      console.log(doc.data())
     })
   })
 }

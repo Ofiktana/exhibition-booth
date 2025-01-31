@@ -2,8 +2,7 @@ import { FaRegClock } from "react-icons/fa";
 import './AgendaItem.css'
 
 
-
-function AgendaItem({ fields }) {
+function AgendaItem({ fields }:any) {
 
   return (
 

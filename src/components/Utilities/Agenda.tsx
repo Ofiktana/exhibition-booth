@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { getAllDocsInCollection, signInWithGoogle } from "../../config/firebase-config"
+import { getAllDocsInCollection } from "../../config/firebase-config"
 import AgendaItem from "./AgendaItem"
 
 type data = {
@@ -18,19 +18,20 @@ type data = {
   }
 }
 
-type dataList = data[]
+
 
 function Agenda() {
 
     const [programs, setPrograms] = useState([])
 
     useEffect(() => {
-      getAllDocsInCollection('programs').then((data:dataList) => {
+      getAllDocsInCollection('programs').then((data:any) => {
+        if(!data){return};
         setPrograms(data)
       })
     },[])
 
-    const activities = programs.map((program) => {
+    const activities = programs.map((program:data) => {
       return {
         id: program.id,
         startTime: (new Date(program.data.start.seconds * 1000)).toLocaleTimeString(),
