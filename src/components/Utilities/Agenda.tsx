@@ -70,8 +70,6 @@ function Agenda() {
 
     })
 
-    console.log(activityDays)
-
 
 
   return (

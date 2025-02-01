@@ -1,5 +1,5 @@
 import { FaRegClock } from "react-icons/fa";
-import './AgendaItem.css'
+import '../../index.css'
 
 
 function AgendaItem({ fields }:any) {

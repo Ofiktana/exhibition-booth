@@ -1,4 +1,3 @@
-import './Header.css';
 import '../../index.css'
 import logo from "../../assets/images/logos/Seplat.png";
 import { NavLink } from 'react-router-dom';
