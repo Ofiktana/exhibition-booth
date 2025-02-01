@@ -67,8 +67,9 @@
     display: none;
   }
 
-  #root, body{
-    min-width: 100vw;
+  body{
+    width: 100vw;
+    max-width: 100vw;
   }
 
 }

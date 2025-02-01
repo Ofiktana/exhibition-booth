@@ -246,13 +246,13 @@
 
 @media screen and (max-width: 800px) {
   .backdrop, .button-container{
-    font-size: 13px;
+    font-size: 14px;
   }
 
   /*Agenda activity form*/
 
   .form-container{
-    font-size: 13px;
+    font-size: 14px;
   }
 
   #agenda-item-form{
@@ -266,7 +266,7 @@
 
 @media screen and (max-width: 500px) {
   .backdrop{
-    font-size: 11px;
+    font-size: 14px;
     height: 240px;
   }
 
