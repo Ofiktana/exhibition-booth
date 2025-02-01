@@ -140,6 +140,10 @@ GENERAL
   width: 7em;
 }
 
+main{
+  border-top: 2px solid var(--primary-green-light);
+}
+
 .header-container{
   
   max-height: 60px;
