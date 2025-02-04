@@ -59,7 +59,7 @@ function Agenda() {
 
       return (
         <>
-          <div className="agenda-day">
+          <div className="agenda-day" key={d.toDateString()}>
             <h3>{dayOfWeek}</h3>
             <p>{month} {dateOfMonth}</p>
           </div>
