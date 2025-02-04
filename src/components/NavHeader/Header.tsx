@@ -11,10 +11,6 @@ function Header() {
 
   const [navVisible, setNavVisible] = useState(false)
 
-  function displayNav(){
-    setNavVisible(true)
-  }
-
   function hideNav(){
     setNavVisible(false)
   }
