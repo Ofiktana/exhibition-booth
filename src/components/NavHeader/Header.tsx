@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import '../../index.css'
-import logo from "../../assets/images/logos/Seplat.png";
+import Logo from '../NavHeader/Logo'
 import { NavLink } from 'react-router-dom';
 import { BsList } from "react-icons/bs";
 
@@ -54,9 +54,7 @@ function Header() {
   return (
      <>
       <header className='header-container'>
-        <div className="logo-image-container">
-          <img src={logo} alt="" />
-        </div>
+        <Logo size=''/>
         <nav className="nav-container">
           {navEl}
         </nav>      
