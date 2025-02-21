@@ -4,7 +4,7 @@ GENERAL
 
 :root{
   /*Colors*/
-  --primary-green-dark: RGB(0,83,50);
+  --primary-green-dark: #345A4A;
   --primary-green-mid: RGB(30,112,49);
   --primary-green-light: RGB(101,179,46);
   --primary-red: RGB(221,16,12);
@@ -22,119 +22,8 @@ GENERAL
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Lato', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
-}
-
-/* Typography - Fonts */
-
-.gafata-regular {
-  font-family: "Gafata", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-
-.roboto-regular {
-  font-family: "Roboto", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-}
-
-.roboto-bold {
-  font-family: "Roboto", serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-}
-
-.spectral-extralight {
-  font-family: "Spectral", serif;
-  font-weight: 200;
-  font-style: normal;
-}
-
-.spectral-light {
-  font-family: "Spectral", serif;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.spectral-regular {
-  font-family: "Spectral", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.spectral-medium {
-  font-family: "Spectral", serif;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.spectral-semibold {
-  font-family: "Spectral", serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.spectral-bold {
-  font-family: "Spectral", serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.spectral-extrabold {
-  font-family: "Spectral", serif;
-  font-weight: 800;
-  font-style: normal;
-}
-
-.spectral-extralight-italic {
-  font-family: "Spectral", serif;
-  font-weight: 200;
-  font-style: italic;
-}
-
-.spectral-light-italic {
-  font-family: "Spectral", serif;
-  font-weight: 300;
-  font-style: italic;
-}
-
-.spectral-regular-italic {
-  font-family: "Spectral", serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.spectral-medium-italic {
-  font-family: "Spectral", serif;
-  font-weight: 500;
-  font-style: italic;
-}
-
-.spectral-semibold-italic {
-  font-family: "Spectral", serif;
-  font-weight: 600;
-  font-style: italic;
-}
-
-.spectral-bold-italic {
-  font-family: "Spectral", serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-.spectral-extrabold-italic {
-  font-family: "Spectral", serif;
-  font-weight: 800;
-  font-style: italic;
 }
 
 /* Generic Page Styles */
@@ -150,7 +39,9 @@ main{
   border-top: 2px solid var(--primary-green-light);
 }
 
+/*******************************************************************************************/
 /*Header & Navigation*/
+/*******************************************************************************************/
 
 .nav-logo{
   background-color: white;
@@ -268,6 +159,66 @@ main{
   border-radius: 0.5em;
   background-color: white;
 }
+
+/*******************************************************************************************/
+/* End of Header & Navigation*/
+/*******************************************************************************************/
+/*******************************************************************************************/
+/*Footer Section*/
+/*******************************************************************************************/
+
+.footer-container{
+  display: flex;
+  justify-content: space-between;
+  padding: 2em;
+  background-color: var(--primary-green-dark);
+  color: white;
+}
+
+.footer-container a {
+  margin: 1em 0;
+  font-size: 0.9em;
+}
+
+.footer-block{
+  width: 25%;
+}
+
+.footer-block small{
+  display: block;
+  margin-top: 1em;
+}
+
+.footer-block-title{
+  margin-bottom: 1.5em;
+  font-weight: 700;
+}
+
+.address-line{
+  font-size: 0.9em;
+}
+
+.footer-social-icons{
+  display: flex;
+  width: 50%;
+  margin: 2em 0;
+  justify-content: space-between;
+}
+
+.footer-links{
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.footer-divider-mobile{
+  margin: 1em 0;
+  display: none;
+}
+
+/*******************************************************************************************/
+/*End of Footer Section*/
+/*******************************************************************************************/
 
 /*BUTTON STYLES*/
 
@@ -580,6 +531,26 @@ MEDIA QUERIES
 
   #agenda-item-form input, #agenda-item-form textarea{
     font-size: inherit;
+  }
+
+  /*Footer Section*/
+
+  .footer-container{
+    flex-direction: column;
+    padding: 2em 1em 5em 1em;
+    width: 100%;
+  }
+
+  .footer-block{
+    width: 100%;
+  }
+
+  .footer-address{
+    display: none
+  }
+
+  .footer-divider-mobile{
+    display: block;
   }
 
 }
