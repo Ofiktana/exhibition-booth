@@ -5,14 +5,15 @@ GENERAL
 :root{
   /*Colors*/
   --primary-green-dark: #345A4A;
-  --primary-green-mid: RGB(30,112,49);
+  --primary-green-mid: #6FC09D;
   --primary-green-light: RGB(101,179,46);
-  --primary-red: RGB(221,16,12);
+  --primary-red: #E64646;
   --primary-grey: RGB(249,249,249);
 
   /*Dimensions*/
 
-  --header-height: 90px;
+  --header-height: 80px;
+  --profile-pic-diameter: 30px;
 
 
 
@@ -23,7 +24,7 @@ GENERAL
   padding: 0;
   box-sizing: border-box;
   font-family: 'Lato', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
+  /* border: 1px solid lightgray; */
 }
 
 /* Generic Page Styles */
@@ -42,7 +43,6 @@ main{
 /*******************************************************************************************/
 /*Header & Navigation*/
 /*******************************************************************************************/
-
 .nav-logo{
   background-color: white;
   width: calc(0.75 * var(--header-height));
@@ -73,10 +73,6 @@ main{
   border-radius: 50%;
   border: 2px solid white;
   box-shadow: 0 0 0.25em var(--primary-green-dark);
-  z-index: 5;
-  position : fixed;
-  right: 1.0vw;
-  top: 1.5vh;
 }
 
 #mobile-nav-toggle:active{
@@ -96,17 +92,24 @@ main{
 }
 
 .nav-container{
+  display: flex;
+  justify-content: end;
+  width: 60%;
   min-width: 40%;
   height: 80%;
 }
 
 .nav-menu{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  width: 100%;
+  gap: 5%;
+  width: 70%;
+  max-width: 100%;
+  min-width: 30%;
   height: 100%;
   list-style-type: none;
+
 }
 
 .mobile-nav-menu {
@@ -114,13 +117,12 @@ main{
   justify-content: space-around;
   font-size: 1.1rem;
   gap: 0.5em;
-  align-items: center;
+  align-items: start;
   width: 100%;
   height: 30%;
   list-style-type: none;
   flex-direction: column;
-  position: absolute;
-  top: 5%;
+  margin-top: 2em;
 }
 
 .nav-item a, .mobile-nav-item a {
@@ -131,7 +133,8 @@ main{
 .nav-menu li a {
   font-family: "Roboto", serif;
   padding: 0.25rem 0.25rem;
-  color:var(--primary-green-dark)
+  color:var(--primary-green-dark);
+  font-weight: bold;
 }
 
 .nav-menu li a:hover {
@@ -140,25 +143,95 @@ main{
 
 #mobile-nav-overlay{
   position: fixed;
-  width: 99vw;
+  width: 100vw;
   height: 100vh;
   top: 0;
   z-index: 3;
   background-color: transparent;
   display: block;
-  background-color: rgba(193, 216, 192, 0.2);
+}
+
+.mobile-user-details{
+  width: 100%;
+  height: 30%;
+  border-bottom: 1px solid var(--primary-green-mid);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.mobile-user-profile-pic{
+  width: calc(var(--profile-pic-diameter) * 5);
+  height: calc(var(--profile-pic-diameter) * 5);
 }
 
 .mobile-nav-container{
-  width: 60vw;
-  height: 60vh;
-  box-shadow: 0 0 1.5em var(--primary-green-dark);
+  width: 100vw;
+  height: 100vh;
+  padding: 3em 2em;
   position: fixed;
-  top: 8vh;
-  right: 2vw;
-  border-radius: 0.5em;
+  top: 0;
+  left: 0;
   background-color: white;
+  display: flex;
+  flex-direction: column;
 }
+
+.mobile-nav-item a{
+  display: flex;
+  width: 7em;
+  justify-content: start;
+  align-items: center;
+  gap: 1em;
+  color: var(--primary-green-dark);
+}
+
+.profile{
+  max-width: 25%;
+  height: 70%;
+  margin-right: 1%;
+}
+
+.user-details{
+  height: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 5px;
+  color: var(--primary-green-dark);
+}
+
+.user-full-name{
+  color: var(--primary-green-dark);
+  font-family: inherit;
+  height: 1.25em;
+}
+
+.user-description{
+  color: darkgray;
+  
+}
+
+.profile-dropdown{
+  color: var(--primary-green-dark);
+  font-weight: bold;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.user-profile-pic{
+  width: var(--profile-pic-diameter);
+  height: var(--profile-pic-diameter);
+  border-radius: 50%;
+}
+
+.user-profile-pic img{
+  width: var(--profile-pic-diameter);
+  height: var(--profile-pic-diameter);
+  border-radius: 50%;
+}
+
+
 
 /*******************************************************************************************/
 /* End of Header & Navigation*/
@@ -447,7 +520,7 @@ MEDIA QUERIES
 @media only screen and (max-width: 600px) {
   /*Mobile Devices*/
 
-  .nav-menu{
+  .nav-menu, .profile{
     display: none;
   }
 
