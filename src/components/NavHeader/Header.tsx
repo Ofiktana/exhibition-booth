@@ -41,7 +41,7 @@ function Header() {
 
   const navigationLinks = [
     {displayText: 'Home', url: '/'},
-    {displayText: 'Learning', url: '/programs'},
+    {displayText: 'Learning', url: '/learning'},
     {displayText: 'ScoreBoard', url: '/leader-board'},
     {displayText: 'Raffle', url: '/raffle'},
   ]

@@ -1,14 +1,9 @@
-import Header from '../NavHeader/Header'
 import Footer from '../Footer/Footer'
 import { Outlet } from 'react-router-dom'
 
-
-function DefaultLayout() {
-  
-
+function NoHeaderLayout() {
   return (
     <>
-      <Header />
       <main>
         <Outlet />
       </main>
@@ -17,4 +12,4 @@ function DefaultLayout() {
   )
 }
 
-export default DefaultLayout
+export default NoHeaderLayout

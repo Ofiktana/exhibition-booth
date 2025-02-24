@@ -6,7 +6,7 @@ GENERAL
   /*Colors*/
   --primary-green-dark: #345A4A;
   --primary-green-mid: #6FC09D;
-  --primary-green-light: RGB(101,179,46);
+  --primary-green-light: #ECF5EE;
   --primary-red: #E64646;
   --primary-grey: RGB(249,249,249);
 
@@ -14,6 +14,10 @@ GENERAL
 
   --header-height: 80px;
   --profile-pic-diameter: 30px;
+
+  /*buttons*/
+  --button-width: 350px;
+  --button-height: 60px;
 
 
 
@@ -36,8 +40,18 @@ GENERAL
   width: 7em;
 }
 
-main{
-  border-top: 2px solid var(--primary-green-light);
+.leftTitleText{
+  color: var(--primary-green-dark)
+}
+
+.rightTitleText{
+  color: var(--primary-green-mid)
+}
+
+.max-width-1200px{
+  display: block;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /*******************************************************************************************/
@@ -153,7 +167,7 @@ main{
 
 .mobile-user-details{
   width: 100%;
-  height: 30%;
+  height: 35%;
   border-bottom: 1px solid var(--primary-green-mid);
   display: flex;
   flex-direction: column;
@@ -236,6 +250,19 @@ main{
 /*******************************************************************************************/
 /* End of Header & Navigation*/
 /*******************************************************************************************/
+
+/*Main Section*/
+
+.main-bg-light{
+  background-color: var(--primary-green-light);
+}
+
+.main-bg-dark{
+  background-image: linear-gradient(var(--primary-green-mid), var(--primary-green-dark));
+}
+
+/*End of Main Section*/
+
 /*******************************************************************************************/
 /*Footer Section*/
 /*******************************************************************************************/
@@ -295,55 +322,130 @@ main{
 
 /*BUTTON STYLES*/
 
-.button-container{
-  display: inline;
-  font-size: 16px;
-}
-
 .button{
-  width: 6.5em;
-  height: 3em;
-  border-radius: 0.5em;
+  font-weight: bold;
+  font-family: inherit;
   font-size: 1em;
-  padding: 0.5em;
-  background-color: var(--primary-green-dark);
-  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   outline: none;
   cursor: pointer;
 }
 
-.button:hover{
+.dark{
+  background-color: var(--primary-green-dark);
+  color: white;
+}
+
+.white-dark{
+  color: var(--primary-green-dark);
+  background-color: white;
+}
+
+.semi-dark{
+  background-color: var(--primary-green-mid);
+  color: white;
+}
+
+.transparent{
+  background-color: transparent;
+  color: var(--primary-green-dark);
+  border: 1px solid var(--primary-green-mid);
+}
+
+.transparent-white{
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+.rounded{
+  border-radius: 30px;
+}
+
+.semi-rounded{
+  border-radius: 8px;
+}
+
+.large-button{
+  width: var(--button-width);
+  height: var(--button-height);
+}
+
+.dark-border{
+  border: 1px solid var(--primary-green-dark);
+}
+
+.semi-dark-border{
+  border: 1px solid var(--primary-green-mid);
+  box-shadow: 0 0 15px var(--primary-green-mid);
+}
+
+.medium-button{
+  width: calc(0.8 * var(--button-width));
+  height: calc(0.8 * var(--button-height));
+}
+
+.small-button{
+  width: calc(0.3 * var(--button-width));
+  height: calc(0.5 * var(--button-height));
+}
+
+.dark:hover{
   color: var(--primary-green-dark);
   background-color: white;
   border: 2px solid var(--primary-green-dark);
 }
 
-.button:active{
+.dark:active{
   color: white;
   background-color: var(--primary-green-dark);
+}
+
+.white-dark:hover{
+  background-color: var(--primary-green-dark);
+  color: white;
+  border: 2px solid var(--primary-green-dark);
+}
+
+.white-dark:active{
+  background-color: white;
+  color: var(--primary-green-dark);
+}
+
+.semi-dark:hover{
+  color: var(--primary-green-mid);
+  background-color: white;
+  border: 2px solid var(--primary-green-mid);
+}
+
+.semi-dark:active{
+  color: white;
+  background-color: var(--primary-green-mid);
 }
 
 /*AGENDA ITEM STYLES*/
 
 
 #agenda-root{
-  /* border: 1px solid lightgray; */
-
-  width: 80vw;
-  display: block;
-  margin: 0 auto;
+  width: 100%;
+  padding: 1em 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  gap: 1.5em;
 }
 
 .backdrop{
   width: 100%;
   height: 200px;
-  background-color: var(--primary-grey);
+  background-color: white;
   border-radius: 1rem;
-  margin: 25px 0;
   position: relative;
-  cursor: pointer;
-  font-size: 16px;
+  font-size: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -351,16 +453,22 @@ main{
 }
 
 .container-outer{
-  width: 95%;
+  width: 98%;
   height: 80%;
   display: flex;
   flex-direction: row;
+  /* border: 3px solid yellow; */
 }
 
-.container-time-block{
+.container-top-block{
   width: 20%;
   height: 100%;
-  color: var(--primary-green-dark)
+  color: var(--primary-green-dark);
+  border-radius: 1rem;
+}
+
+.container-top-block img{
+  border-radius: inherit;
 }
 
 .container-time-block h3 {
@@ -368,7 +476,7 @@ main{
 }
 
 .agenda-day{
-  border: 0.2em solid var(--primary-green-light);
+  border: 0.2em solid white;
   padding: 1em;
   width: 10em;
   border-radius: 1em;
@@ -382,12 +490,8 @@ main{
   border-radius: 5px;
   background-color: white;
   color: var(--primary-green-dark);
-  box-shadow: 0px 0px 4px darkgray;
   padding: 20px;
-}
-
-.container-activity-block:hover{
-  box-shadow: 0px 0px 8px darkgray;
+  /* border: 1px solid brown; */
 }
 
 .activity-title{
@@ -401,7 +505,7 @@ main{
   color: darkgrey;
 }
 
-/* AGENDA ITEM FORM*/
+/* AGENDA ITEM FORM
 
 .form-container{
   width: 80vw;
@@ -511,7 +615,7 @@ main{
 .agenda-item-save{
   display: block;
   margin: 5% auto;
-}
+} */
 
 /*************************************************************************************
 MEDIA QUERIES
@@ -538,10 +642,18 @@ MEDIA QUERIES
     font-size: 14px;
     height: 20rem;
     width: 100%;
+    padding: 0;
+    align-items: start;
   }
 
   #agenda-root{
-    width: 90vw;
+    width: 100%;
+    padding: 1em 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    gap: 1.5em;
   }
 
   .agenda-day{
@@ -555,21 +667,36 @@ MEDIA QUERIES
 
   .container-outer{
     flex-direction: column;
-    width: 90%;
+    border-radius: 1rem;
+    width: 100%;
+    height: 100%;
   }
 
   .container-activity-block{
     width: 100%;
     margin-top: 0.5rem;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
   }
 
-  .container-time-block{
+  .container-top-block{
     width: 100%;
-    height: 30%;
+    height: 40%;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .container-top-block > img{
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+
   }
 
   /*Agenda activity form*/
-
+/* 
   .form-container{
     font-size: 11px;
   }
@@ -590,9 +717,9 @@ MEDIA QUERIES
 
   .button-container{
     font-size: 14px;
-  }
+  } */
 
-  /*Agenda activity form*/
+  /* Agenda activity form
 
   .form-container{
     font-size: 10px;
@@ -604,7 +731,7 @@ MEDIA QUERIES
 
   #agenda-item-form input, #agenda-item-form textarea{
     font-size: inherit;
-  }
+  } */
 
   /*Footer Section*/
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
-import { getAllDocsInCollection } from "../../config/firebase-config"
-import AgendaItem from "./AgendaItem"
+import { getAllDocsInCollection } from "../config/firebase-config"
+import AgendaItem from "../components/Utilities/AgendaItem"
+import TitleText from "../components/Utilities/TitleText"
 
 type data = {
   id : string,
@@ -20,7 +21,7 @@ type data = {
 
 
 
-function Agenda() {
+function Learning() {
 
     const [programs, setPrograms] = useState([])
 
@@ -31,11 +32,15 @@ function Agenda() {
       })
     },[])
 
+    function formatTimeString(text:string){
+      return (text.slice(0,-2)).slice(0,-4) + ' ' + text.slice(-2).toLowerCase()
+    }
+
     const activities = programs.map((program:data) => {
       return {
         id: program.id,
-        startTime: (new Date(program.data.start.seconds * 1000)).toLocaleTimeString(),
-        endTime: (new Date(program.data.end.seconds * 1000)).toLocaleTimeString(),
+        startTime: formatTimeString((new Date(program.data.start.seconds * 1000)).toLocaleTimeString()),
+        endTime: formatTimeString((new Date(program.data.end.seconds * 1000)).toLocaleTimeString()),
         title: program.data.title,
         summary: program.data.summary,
         startDate: (new Date(program.data.start.seconds * 1000)).toDateString(),
@@ -73,15 +78,15 @@ function Agenda() {
 
 
   return (
-    <div id="agenda-root">
-      <h2 className="page-title">
-        Schedule
-      </h2>
+    <div className="main-bg-light">
+      <div id="agenda-root"  className='main-bg-light max-width-1200px'>
+        <TitleText left='Learning' right='Programs' />
 
-      {activitiesEl}
+        {activitiesEl}
 
+      </div>
     </div>
   )
 }
 
-export default Agenda
+export default Learning
