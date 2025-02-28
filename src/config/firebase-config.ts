@@ -64,7 +64,7 @@ export async function registerNewUserWithEmail(email:string, password:string){
     return user
 
   }catch(err){
-    console.log(err)
+    alert(err)
   }
 }
 
@@ -75,7 +75,7 @@ export async function signInUserWithEmail(email:string, password:string){
     return user
 
   }catch(err){
-    console.log(err)
+    alert(err)
   }
 }
 

@@ -15,7 +15,11 @@ type data = {
       nanoseconds: number
     },
     title : string,
-    summary : string
+    summary : string,
+    imageURL: string,
+    paragraphOne: string,
+    paragraphTwo: string,
+    paragraphThree: string
   }
 }
 
@@ -44,7 +48,8 @@ function Learning() {
         title: program.data.title,
         summary: program.data.summary,
         startDate: (new Date(program.data.start.seconds * 1000)).toDateString(),
-        value: (new Date(program.data.start.seconds * 1000)).valueOf()
+        value: (new Date(program.data.start.seconds * 1000)).valueOf(),
+        imageURL: program.data.imageURL
       }
     })
 

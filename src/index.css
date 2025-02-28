@@ -320,7 +320,10 @@ GENERAL
 /*End of Footer Section*/
 /*******************************************************************************************/
 
-/*BUTTON STYLES*/
+/*******************************************************************************************/
+/*Button Styles*/
+/*******************************************************************************************/
+
 
 .button{
   font-weight: bold;
@@ -331,6 +334,15 @@ GENERAL
   align-items: center;
   border: none;
   outline: none;
+  cursor: pointer;
+}
+
+.link-button{
+  border: none;
+  text-decoration: underline;
+  background-color: transparent;
+  margin-left: 0.5rem;
+  font-size: inherit;
   cursor: pointer;
 }
 
@@ -379,8 +391,8 @@ GENERAL
 }
 
 .semi-dark-border{
-  border: 1px solid var(--primary-green-mid);
-  box-shadow: 0 0 15px var(--primary-green-mid);
+  border: 2px solid var(--primary-green-mid);
+  box-shadow: 0 0 8px var(--primary-green-dark);
 }
 
 .medium-button{
@@ -425,6 +437,119 @@ GENERAL
   color: white;
   background-color: var(--primary-green-mid);
 }
+
+/*******************************************************************************************/
+/*End of Button Styles*/
+/*******************************************************************************************/
+/*******************************************************************************************/
+/*Text Input styles*/
+/*******************************************************************************************/
+.text-input-element{
+  position: relative;
+}
+
+.password-viewer{
+  color: darkgrey;
+  position: absolute;
+  height: 60%;
+  top: 20%;
+  right: 5%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+  
+
+/*******************************************************************************************/
+/*End of Text Input styles*/
+/*******************************************************************************************/
+/*******************************************************************************************/
+/*Landing page styles*/
+/*******************************************************************************************/
+  .landing-page-container{
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .landing-page-container p, .landing-page-container h2{
+    color: white;
+    text-align: center;
+  }
+
+  .landing-page-container button{
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+
+/*******************************************************************************************/
+/*End of Landing page styles*/
+/*******************************************************************************************/
+/*******************************************************************************************/
+/*Login page styles*/
+/*******************************************************************************************/
+  .login-page-container{
+    width: 50%;
+    min-height: 100vh;
+    display: block;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.5rem;
+    /* border: 1px solid red; */
+  }
+
+  .login-page-container form button {
+    display: block;
+    margin: 2rem auto;
+    margin-bottom: 2rem;
+  }
+
+  .login-page-container form legend {
+    margin: 2rem 0 1rem 0;
+    color: var(--primary-green-dark);
+  }
+
+  .login-form-input-box{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .login-form-input-box input{
+    border: 1px solid lightgray;
+    outline: none;
+    padding: 0.5rem;
+  }
+
+  .login-form-input-box input:focus{
+    border: 2px solid var(--primary-green-mid)
+  }
+
+  .login-form-input-container{
+    padding: 2rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 600px;
+    justify-content: space-between;
+    /* border: 1px solid blue; */
+  }
+
+
+/*******************************************************************************************/
+/*End of Login page styles*/
+/*******************************************************************************************/
 
 /*AGENDA ITEM STYLES*/
 
@@ -490,132 +615,40 @@ GENERAL
   border-radius: 5px;
   background-color: white;
   color: var(--primary-green-dark);
-  padding: 20px;
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /* align-items: center; */
   /* border: 1px solid brown; */
 }
 
 .activity-title{
-  margin-top: 1em;
+  /* margin-top: 1em; */
   margin-bottom: 0.5em;
   font-size: 1.1em;
+  font-weight: bold;
+  min-width: 100%;
+  width: 100%;
+}
+
+.activity-title small{
+  color: darkgray;
+  font-weight: normal;
+  margin-top: 0.25rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }
 
 .activity-summary{
   font-size: 0.9em;
-  color: darkgrey;
-}
-
-/* AGENDA ITEM FORM
-
-.form-container{
-  width: 80vw;
-  height: 70vh;
-  max-width: 800px;
-  min-height: 38em;
-  max-height: 80vh;
-  font-size: 16px;
-  display: flex;
-  position: fixed;
-  top: 10vh;
-  left: 10vw;
-  background-image: linear-gradient(to bottom right, var(--primary-grey), var(--primary-green-light));
-  border-radius: 2vw;
-}
-
-#agenda-item-form-container{
-  display: none
-}
-
-#agenda-item-form{
-  width: 60%;
-  height: 80%;
-  background-color: var(--primary-grey);
-  color: white;
-  box-shadow: 0 0 10px var(--primary-green-mid);
-  display: block;
-  margin: auto;
-  border-radius: 1em;
-}
-
-.agenda-item-form-content{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
+  color: var(--primary-green-dark);
+  height: 2rem;
   min-width: 100%;
-  gap: 0.75em;
-
-}
-
-#agenda-item-form legend{
-  background-color: var(--primary-green-dark);
-  height: 3em;
-  padding: 1em;
-  border-top-left-radius: inherit;
-  border-top-right-radius: inherit;
-  text-align: center;
-  font-size: 1.2em;
-  font-weight: bold;
-}
-
-#agenda-item-form .activity-boundary{
-  height: 3.5em;
-  width: 45%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-#agenda-item-form input, #agenda-item-form textarea{
   width: 100%;
-  padding: 0.25em 1em;
-  border-radius: 1em;
-  border: 1px solid var(--primary-green-mid);
-  outline: none;
-  color: var(--primary-green-light);
+  margin-bottom: 0.25rem;
 }
-
-#agenda-item-form .session-title{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 3.5em;
-  width: 90%;
-}
-
-#agenda-item-form .session-summary{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 7em;
-  width: 90%;
-}
-
-#agenda-item-form label{
-  color: var(--primary-green-mid);
-  font-weight: bold;
-}
-
-#agenda-item-form textarea{
-  height: 5.5em;
-  resize: none;
-}
-
-#agenda-item-form .activity-timing{
-  display: flex;
-  width: 90%;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 10%;
-  margin: 0.5em 0.5em;
-}
-
-.agenda-item-save{
-  display: block;
-  margin: 5% auto;
-} */
 
 /*************************************************************************************
 MEDIA QUERIES
@@ -695,43 +728,11 @@ MEDIA QUERIES
 
   }
 
-  /*Agenda activity form*/
-/* 
-  .form-container{
-    font-size: 11px;
+  .learn-more{
+    display: block;
+    margin: 0 auto;
+    width: 98%;
   }
-
-  #agenda-item-form input, #agenda-item-form textarea{
-    font-size: inherit;
-  }
-
-  #agenda-item-form .activity-boundary{
-    width: 100%;
-  }
-
-  #agenda-item-form .activity-timing{
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 1em;
-  }
-
-  .button-container{
-    font-size: 14px;
-  } */
-
-  /* Agenda activity form
-
-  .form-container{
-    font-size: 10px;
-  }
-
-  #agenda-item-form{
-    width: 90%;
-  }
-
-  #agenda-item-form input, #agenda-item-form textarea{
-    font-size: inherit;
-  } */
 
   /*Footer Section*/
 
@@ -753,7 +754,35 @@ MEDIA QUERIES
     display: block;
   }
 
+  /*Landing page*/
+
+  .landing-page-container{
+    width: 98%;
+  }
+
+  /*Login page*/
+
+  .login-page-container{
+    width: 95%;
+    margin: 0 auto;
+    /* border: 1px solid red; */
+  }
+
+  .login-form-input-container{
+    width: 100%;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    /* border: 1px solid blue; */
+  }
+
+  .login-page-container form{
+    /* border: 1px solid green; */
+    margin: 1rem 0;
+
+  }
+
 }
+
 
 
 
