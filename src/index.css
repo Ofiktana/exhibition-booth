@@ -8,12 +8,13 @@ GENERAL
   --primary-green-mid: #6FC09D;
   --primary-green-light: #ECF5EE;
   --primary-red: #E64646;
-  --primary-grey: RGB(249,249,249);
+  --primary-grey: rgb(147, 142, 142);
 
   /*Dimensions*/
 
   --header-height: 80px;
   --profile-pic-diameter: 30px;
+  --hero-square: 700px;
 
   /*buttons*/
   --button-width: 350px;
@@ -153,6 +154,46 @@ GENERAL
 
 .nav-menu li a:hover {
   color: var(--primary-red)
+}
+
+.user-profile-details-container{
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  min-height: 99vh;
+  z-index: 8;
+}
+
+.user-profile-card{
+  border: 1px solid var(--primary-green-mid);
+  position: absolute;
+  top: var(--header-height);
+  padding: 1rem;
+  right: 10px;
+  width: 350px;
+  height: 180px;
+  background-color: var(--primary-green-light);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+  box-shadow: 0 0 5px var(--primary-green-mid);
+}
+
+.upc-image{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-green-mid);
+}
+
+.upc-logout{
+  padding: 1rem;
+  font-family: inherit;
 }
 
 #mobile-nav-overlay{
@@ -405,6 +446,14 @@ GENERAL
   height: calc(0.5 * var(--button-height));
 }
 
+.glow-button{
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0.5rem 0.5rem 1rem var(--primary-green-mid);
+  border: 1px solid var(--primary-green-light);
+  text-decoration: none;
+}
+
 .dark:hover{
   color: var(--primary-green-dark);
   background-color: white;
@@ -550,6 +599,122 @@ GENERAL
 /*******************************************************************************************/
 /*End of Login page styles*/
 /*******************************************************************************************/
+/*******************************************************************************************/
+/*Welcome page styles*/
+/*******************************************************************************************/
+  .main-container{
+    width: var(--hero-square);
+    height: var(--hero-square);
+    background-color: transparent;
+    margin: 2rem auto;
+    position: relative;
+  }
+
+  .hero-small-bottom-left{
+    width: calc(var(--hero-square) * 0.3);
+    height: calc(var(--hero-square) * 0.3);
+    border: 5px solid var(--primary-green-mid);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    z-index: 2;
+  }
+
+  .hero-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+  }
+
+  .hero-center-img-container{
+    width: 95%;
+    height: 95%;
+    border-radius: 50%;
+  }
+
+  .hero-center-image{
+    object-fit: cover;
+    height: 100%;   
+    width: 100%;
+    border-radius: 50%;
+  }
+
+  .hero-small-top-right{
+    width: calc(var(--hero-square) * 0.3);
+    height: calc(var(--hero-square) * 0.3);
+    background-color: var(--primary-green-dark);
+    opacity: 80%;
+    border: 1px solid var(--primary-green-dark);
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-medium-top-right{
+    width: calc(var(--hero-square) * 0.6);
+    height: calc(var(--hero-square) * 0.6);
+    background-color: var(--primary-red);
+    opacity: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+  }
+
+  .hero-large-bottom-right{
+    width: calc(var(--hero-square) * 0.85);
+    height: calc(var(--hero-square) * 0.85);
+    background-color: var(--primary-green-mid);
+    opacity: 100%;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .grey-text{
+    color: var(--primary-grey);
+  }
+
+  .welcome-note{
+    padding: 0 1rem 1rem 1rem;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .tlc-sub-container{
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .time-location-container{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 1rem;
+  }
+/*******************************************************************************************/
+/*End of Welcome page styles*/
+/*******************************************************************************************/
 
 /*AGENDA ITEM STYLES*/
 
@@ -650,12 +815,59 @@ GENERAL
   margin-bottom: 0.25rem;
 }
 
+.numbers-ribbon-container{
+  background-color: white;
+  width: 70%;
+  padding: 1rem;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 0 1rem var(--primary-green-mid);
+  border-radius: 0.5rem;
+}
+
+.numbers-ribbon-item{
+  width: 200px;
+  height: 80px;
+  /* border: 1px solid var(--primary-green-mid); */
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 1rem;
+}
+
+.nr-item-left{
+  width: 25%;
+  height: auto;
+  /* border: 1px solid red; */
+}
+
+.nr-icon{
+  width: 100%;
+  height: 100%;
+}
+
+.booth-agenda-heading{
+  margin: 1rem auto;
+  display: block;
+  width: 10rem;
+  font-weight: bold;
+}
+
 /*************************************************************************************
 MEDIA QUERIES
 **************************************************************************************/
 
 @media only screen and (max-width: 600px) {
   /*Mobile Devices*/
+
+  :root{
+    --hero-square: 350px;
+  }
+
+  .max-width-1200px{
+    max-width: 100vw;
+  }
 
   .nav-menu, .profile{
     display: none;
@@ -779,6 +991,16 @@ MEDIA QUERIES
     /* border: 1px solid green; */
     margin: 1rem 0;
 
+  }
+
+  .glow-button{
+    max-width: 250px;
+  }
+
+  .numbers-ribbon-container{
+    width: 60%;
+    flex-direction: column;
+    align-items: center;
   }
 
 }

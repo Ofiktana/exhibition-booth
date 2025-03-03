@@ -132,7 +132,7 @@ function Login() {
               }
             })
             .then(() => authUpdateProfile(fullName, ''))
-            .catch((error)=> alert(error))  
+            
   
         }else{
             //invalid password
@@ -145,23 +145,22 @@ function Login() {
         const email:any = loginForm.email
         const password:any = loginForm.password
 
-        signInUserWithEmail(email, password)
+        try{
+
+          signInUserWithEmail(email, password)
+            
+
+        }catch(err:any){
+          alert(err.message)
+        }
 
         //After sign in, collect user id and navigate. Same goes for registering new user
       }
     }catch(err){
       alert(err)
     }finally{
+      {/*Nothing right now in finally block */}
 
-      formEl.reset()
-  
-      setPasswordValidityState({
-        length: false,
-        number: false,
-        special: false,
-        upper: false,
-        confirm: false
-      })
     }
   }
 

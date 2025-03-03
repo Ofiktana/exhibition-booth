@@ -24,7 +24,7 @@ function AgendaItem({ fields }:any) {
                {fields.summary.length > 103 ? fields.summary.slice(0,100) + '...' : fields.summary}
              </p>    
            </div>
-           <button className="learn-more medium-button dark semi-rounded">Learn More</button>
+           <button className="learn-more medium-button button dark semi-rounded">Learn More</button>
          </div>
         </div>
       </div>

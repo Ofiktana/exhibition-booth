@@ -2,7 +2,7 @@ import { useState } from 'react'
 import '../../index.css'
 import Logo from '../NavHeader/Logo'
 import { NavLink } from 'react-router-dom';
-import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { IoCloseSharp, IoTrophy,  IoBook, IoHome  } from "react-icons/io5";
 import { GiCardRandom } from "react-icons/gi";
 import { BsList } from "react-icons/bs";
@@ -28,6 +28,7 @@ function Header() {
   {/* State management for mobile navigation toggle */}
 
   const [navVisible, setNavVisible] = useState(false)
+  const [userDetailsVisible, setUserDetailsVisible] = useState(false)
 
   function hideNav(){
     setNavVisible(false)
@@ -35,6 +36,10 @@ function Header() {
 
   function toggleNav(){
     setNavVisible(prev => !prev)
+  }
+
+  function toggleUserDetails(){
+    setUserDetailsVisible(prev => !prev)
   }
 
   {/* Navigation setup list */}
@@ -80,10 +85,10 @@ function Header() {
           </li>
         )
       })}
-      {/* Insert an exit button e.g. 
+        {/*Log out button for mobile view */}
         <li className="nav-item">
-          <NavLink to={nav.url}>{getIcon('Exit')} Exit</NavLink>
-        </li> */}
+          <button className="button semi-dark small-button semi-rounded upc-logout">Log out</button>
+        </li> 
     </ul>
   )
 
@@ -103,7 +108,25 @@ function Header() {
             <h4 className="user-full-name">
               {user.fullName.length > 15 ? (user.fullName.slice(0,12) + '...') : user.fullName}
             </h4>
-            <IoIosArrowDown className='profile-dropdown'/>
+            <div onClick={toggleUserDetails} className='profile-dropdown'>
+              {userDetailsVisible ? <IoIosArrowUp /> : <IoIosArrowDown />}
+            </div>
+            {/* User profile details with logout button to be toggled */}
+            {userDetailsVisible && <div className="user-profile-details-container" onClick={toggleUserDetails}>
+                <div className="user-profile-card">
+                  <div className="upc-image">
+                    <img src={user.imageURL} alt="profile picture" width='100%' className="upc-profile-pic" />
+                  </div>
+                  <div className="upc-details">
+                    <h4 className="upc-user-fullname">
+                      {user.fullName}
+                    </h4>
+                    <p className="upc-user-description">Guest</p>
+                  </div>
+                  {/*Log out button for wide view */}
+                  <button className="button semi-dark small-button semi-rounded upc-logout">Log out</button>
+                </div>
+              </div>}
           </div>
         </div>      
       <button onClick={toggleNav} id='mobile-nav-toggle' type='button' className="nav-toggle-button mobile-only" aria-label='navigation menu toggle'>
