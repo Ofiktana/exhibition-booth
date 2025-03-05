@@ -1,6 +1,6 @@
-import speStaffPrimary from '../../assets/images/content-images/spe-staff-primary.jpg'
-import speExecs from '../../assets/images/content-images/spe-execs.jpg'
-import speAward from '../../assets/images/content-images/spe-award.jpg'
+import speStaffPrimary from '../../assets/images/content-images/fc-spe-staff-primary.jpg'
+import speExecs from '../../assets/images/content-images/fc-spe-execs.jpg'
+import speAward from '../../assets/images/content-images/fc-spe-award.jpg'
 
 function HeroSection(){
 
