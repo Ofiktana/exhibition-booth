@@ -447,9 +447,8 @@ GENERAL
 }
 
 .glow-button{
-  margin-left: 1rem;
-  margin-bottom: 1rem;
-  box-shadow: 0.5rem 0.5rem 1rem var(--primary-green-mid);
+  margin: 1.5rem 1rem;
+  box-shadow: 0.2rem 0.2rem 0.4rem var(--primary-green-mid);
   border: 1px solid var(--primary-green-light);
   text-decoration: none;
 }
@@ -690,12 +689,18 @@ GENERAL
     align-items: center;
   }
 
+  .activity-time{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+
   .grey-text{
     color: var(--primary-grey);
   }
 
   .welcome-note{
-    padding: 0 1rem 1rem 1rem;
+    padding: 0.5rem 1rem;
     max-width: 100%;
     width: 100%;
   }
@@ -711,6 +716,122 @@ GENERAL
     align-items: center;
     gap: 1rem;
     padding-left: 1rem;
+  }
+
+  .schedule-container{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: start;
+    align-items: center;
+    margin: 0 auto;
+    min-height: 400px;
+  }
+
+  .schedule-match-dates{
+    display: flex;
+    gap: 1rem;
+  }
+
+  .schedule-items{
+    margin: 1.5rem 0;
+  }
+
+  .schedule-item-title{
+    font-family: 'Trebuchet MS', 'Lato';
+    margin-top: 0.25rem;
+  }
+
+  .grow-together-container{
+    width: 100%;
+    height: 600px;
+    display: flex;
+    margin: 3rem auto;
+    border-radius: 0.5rem;
+    background: linear-gradient(var(--primary-green-light),var(--primary-green-mid));
+    justify-content: center;
+    align-items: end;
+    padding: 3rem 0;
+    gap: 1rem;
+  }
+
+  .gt-sub-container-right, .gt-sub-container-left {
+    width: 45%;
+    height: 80%;
+    border-radius: 2%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    
+  }
+
+  .gt-sub-container-right img{
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 0.75rem var(--primary-green-dark);
+    border-radius: inherit;
+    object-fit: cover;
+  }
+
+  .gt-sc-right-title{
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  .gt-sc-right-grid{
+    display: grid;
+    width: 80%;
+    height: 80%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 3px;
+    grid-row-gap: 3px;
+  }
+
+  .grid-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .grid-item p{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
+  .gt-icon{
+    font-size: 2.5rem;
+  }
+
+  .gt-green-white{
+    color: white;
+    background-color: var(--primary-green-mid);
+  }
+
+  .gt-white-grey{
+    color: var(--primary-grey);
+    background-color: white;
+  }
+
+  .gt-bottom-left{
+    border-radius: 50%;
+    border-bottom-left-radius: 0;
+  }
+  .gt-top-left{
+    border-radius: 50%;
+    border-top-left-radius: 0;
+  }
+  .gt-bottom-right{
+    border-radius: 50%;
+    border-bottom-right-radius: 0;
+  }
+  .gt-top-right{
+    border-radius: 50%;
+    border-top-right-radius: 0;
   }
 /*******************************************************************************************/
 /*End of Welcome page styles*/
@@ -848,7 +969,7 @@ GENERAL
 }
 
 .booth-agenda-heading{
-  margin: 1rem auto;
+  margin: 2rem auto;
   display: block;
   width: 10rem;
   font-weight: bold;
@@ -994,7 +1115,7 @@ MEDIA QUERIES
   }
 
   .glow-button{
-    max-width: 250px;
+    max-width: 220px;
   }
 
   .numbers-ribbon-container{

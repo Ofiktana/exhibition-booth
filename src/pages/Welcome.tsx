@@ -3,6 +3,8 @@ import HeroSection from "../components/Welcome/HeroSection"
 import { CiLocationOn } from "react-icons/ci";
 import { MdOutlineDateRange } from "react-icons/md";
 import NumbersRibbon from "../components/Welcome/NumbersRibbon";
+import Schedule from "../components/Welcome/Schedule";
+import GrowTogether from "../components/Welcome/GrowTogether";
 
 function Welcome() {
   return (
@@ -15,7 +17,7 @@ function Welcome() {
             <MdOutlineDateRange/><small className="grey-text"> 04 - 06 Aug. 2025</small>
           </div>
           <div className="tlc-sub-container">
-          <CiLocationOn/> <small className="grey-text"> Eko Hotel and Suites, Lagos</small>
+            <CiLocationOn/> <small className="grey-text"> Eko Hotel and Suites, Lagos</small>
           </div>
         </div>
         <TitleText 
@@ -25,11 +27,17 @@ function Welcome() {
         <p className="grey-text welcome-note">
           Welcome to <span style={{fontWeight: 'bold'}}>Seplat Energy Plc</span>  – where innovation meets opportunity. We invite you to explore our advanced solutions and learn how our expertise is enhancing Nigeria’s oil and gas industry. Dive in, engage with our key initiatives, and join us in shaping a sustainable and prosperous future for Nigeria’s energy landscape.
         </p>
-        <a href='https://www.seplatenergy.com' target="_blank" className="button glow-button medium-button semi-dark rounded">Learn More About Seplat</a>
+        {/* <a href='https://www.seplatenergy.com' target="_blank" id='about-seplat' className="button glow-button medium-button semi-dark rounded">Learn More About Seplat</a> */}
       
-        <NumbersRibbon />
+        <NumbersRibbon /> {/*Conference in numbers section */}
+
         <p className="booth-agenda-heading"><span className="leftTitleText">Exhibition</span> <span className="rightTitleText">Agenda</span> </p>
       
+        <Schedule />
+
+        <GrowTogether />
+
+        
       </div>
     </div>
   )

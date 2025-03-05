@@ -3,7 +3,7 @@ import { getAllDocsInCollection } from "../config/firebase-config"
 import AgendaItem from "../components/Utilities/AgendaItem"
 import TitleText from "../components/Utilities/TitleText"
 
-type data = {
+export type data = {
   id : string,
   data : {
     start : {
@@ -17,12 +17,16 @@ type data = {
     title : string,
     summary : string,
     imageURL: string,
+    learning: boolean,
     paragraphOne: string,
     paragraphTwo: string,
     paragraphThree: string
   }
 }
 
+export function formatTimeString(text:string){
+  return (text.slice(0,-2)).slice(0,-4) + ' ' + text.slice(-2).toLowerCase()
+}
 
 
 function Learning() {
@@ -36,18 +40,15 @@ function Learning() {
       })
     },[])
 
-    function formatTimeString(text:string){
-      return (text.slice(0,-2)).slice(0,-4) + ' ' + text.slice(-2).toLowerCase()
-    }
 
-    const activities = programs.map((program:data) => {
+    const activities = programs.filter((program:data) => program.data.learning).map((program:data) => {
       return {
         id: program.id,
         startTime: formatTimeString((new Date(program.data.start.seconds * 1000)).toLocaleTimeString()),
         endTime: formatTimeString((new Date(program.data.end.seconds * 1000)).toLocaleTimeString()),
         title: program.data.title,
         summary: program.data.summary,
-        startDate: (new Date(program.data.start.seconds * 1000)).toDateString(),
+        startDate: (new Date(program.data.start.seconds * 1000)).toLocaleDateString(),
         value: (new Date(program.data.start.seconds * 1000)).valueOf(),
         imageURL: program.data.imageURL
       }
