@@ -6,7 +6,8 @@ GENERAL
   /*Colors*/
   --primary-green-dark: #345A4A;
   --primary-green-mid: #6FC09D;
-  --primary-green-light: #ECF5EE;
+  /* --primary-green-light: #ECF5EE; */
+  --primary-green-light: #F4F8F5;
   --primary-red: #E64646;
   --primary-grey: rgb(147, 142, 142);
 
