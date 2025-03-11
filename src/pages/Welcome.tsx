@@ -5,6 +5,7 @@ import { MdOutlineDateRange } from "react-icons/md";
 import NumbersRibbon from "../components/Welcome/NumbersRibbon";
 import Schedule from "../components/Welcome/Schedule";
 import GrowTogether from "../components/Welcome/GrowTogether";
+import EyeCanSee from "../components/Welcome/EyeCanSee";
 
 function Welcome() {
   return (
@@ -37,6 +38,7 @@ function Welcome() {
 
         <GrowTogether />
 
+        <EyeCanSee />
         
       </div>
     </div>
