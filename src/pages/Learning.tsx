@@ -84,7 +84,7 @@ function Learning() {
 
 
   return (
-    <div className="main-bg-light">
+    <div className="main-bg-light min-h-screen">
       <div id="agenda-root"  className='main-bg-light max-width-1200px'>
         <TitleText left='Learning' right='Programs' />
 

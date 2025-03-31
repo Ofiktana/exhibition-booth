@@ -29,8 +29,8 @@ function NumbersRibbon() {
           {item.icon}
         </div>
         <div className="nr-item-right">
-          <h2 className="leftTitleText">{item.amount}</h2>
-          <small className="grey-text">{item.measure}</small>
+          <h2 className="leftTitleText text-2xl font-semibold">{item.amount}</h2>
+          <small className="grey-text text-sm">{item.measure}</small>
         </div>
       </div>
     )
