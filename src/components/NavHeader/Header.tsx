@@ -105,7 +105,7 @@ function Header() {
             <div className="user-profile-pic">
               <img src={user.imageURL} alt="profile picture" className="profile-pic" />
             </div>
-            <h4 className="user-full-name">
+            <h4 className="user-full-name font-semibold">
               {user.fullName.length > 15 ? (user.fullName.slice(0,12) + '...') : user.fullName}
             </h4>
             <div onClick={toggleUserDetails} className='profile-dropdown'>
@@ -118,7 +118,7 @@ function Header() {
                     <img src={user.imageURL} alt="profile picture" width='100%' className="upc-profile-pic" />
                   </div>
                   <div className="upc-details">
-                    <h4 className="upc-user-fullname">
+                    <h4 className="upc-user-fullname font-semibold">
                       {user.fullName}
                     </h4>
                     <p className="upc-user-description">Guest</p>

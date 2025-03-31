@@ -16,8 +16,8 @@ function Home() {
     <div className='main-bg-dark'>
       <div className="landing-page-container" style={homeStyle}>
         <Logo size='large'/>
-        <h2>Welcome to the Seplat Exhibition Booth</h2>
-        <p>Log in for a seamless booth experience...</p>
+        <h2 className='text-2xl'>Welcome to the Seplat Exhibition Booth</h2>
+        <p className='italic'>Log in for a seamless booth experience...</p>
         <button className="button medium-button rounded white-dark" onClick={gotoLogin}>
           <MdEmail /> Continue with Email
         </button>
