@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import { FaRegClock } from "react-icons/fa";
 import '../../index.css'
 
@@ -19,12 +20,16 @@ function AgendaItem({ fields }:any) {
              {fields.startTime} - {fields.endTime}</small>
            </p>
           </div>
-           <div className="activity-desc">
-             <p className="activity-summary">
+           <div className="activity-desc ">
+             <p className="activity-summary ">
                {fields.summary.length > 103 ? fields.summary.slice(0,100) + '...' : fields.summary}
              </p>    
            </div>
-           <button className="learn-more medium-button button dark semi-rounded">Learn More</button>
+           <NavLink to={`${fields.slug}`}>
+            <button className="learn-more medium-button button dark semi-rounded">
+              Learn More
+            </button>
+           </NavLink>
          </div>
         </div>
       </div>

@@ -1,72 +1,26 @@
-import { useState, useEffect } from "react"
-import { getAllDocsInCollection } from "../config/firebase-config"
+import { useContext } from "react"
 import AgendaItem from "../components/Utilities/AgendaItem"
 import TitleText from "../components/Utilities/TitleText"
-
-export type data = {
-  id : string,
-  data : {
-    start : {
-      seconds : number,
-      nanoseconds: number
-    },
-    end : {
-      seconds : number,
-      nanoseconds: number
-    },
-    title : string,
-    summary : string,
-    imageURL: string,
-    learning: boolean,
-    paragraphOne: string,
-    paragraphTwo: string,
-    paragraphThree: string
-  }
-}
-
-export function formatTimeString(text:string){
-  return (text.slice(0,-2)).slice(0,-4) + ' ' + text.slice(-2).toLowerCase()
-}
-
+import { AppContext } from "../components/Layouts/DefaultLayout"
+import { ExtractedActivity } from "../components/Layouts/DefaultLayout"
 
 function Learning() {
 
-    const [programs, setPrograms] = useState([])
+    const activities:any  = useContext(AppContext).learning
 
-    useEffect(() => {
-      getAllDocsInCollection('programs').then((data:any) => {
-        if(!data){return};
-        setPrograms(data)
-      })
-    },[])
+    const activityDaysSet = new Set(activities.map((activity:ExtractedActivity) => activity.startDate))
 
-
-    const activities = programs.filter((program:data) => program.data.learning).map((program:data) => {
-      return {
-        id: program.id,
-        startTime: formatTimeString((new Date(program.data.start.seconds * 1000)).toLocaleTimeString()),
-        endTime: formatTimeString((new Date(program.data.end.seconds * 1000)).toLocaleTimeString()),
-        title: program.data.title,
-        summary: program.data.summary,
-        startDate: (new Date(program.data.start.seconds * 1000)).toLocaleDateString(),
-        value: (new Date(program.data.start.seconds * 1000)).valueOf(),
-        imageURL: program.data.imageURL
-      }
-    })
-
-    const activityDaysSet = new Set(activities.map(activity => activity.startDate))
-
-    const activityDays = [...activityDaysSet].sort()
+    const activityDays:any = [...activityDaysSet].sort()
 
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     const weekdays = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat']
     
-    const activitiesEl = activityDays.map((day) => {
+    const activitiesEl = activityDays.map((day:any) => {
       const d = new Date(day)
       const month = months[d.getMonth()]
       const dayOfWeek = weekdays[d.getDay()]
       const dateOfMonth = d.getDate()
-      const dailyActivities = activities.filter(activity => activity.startDate === day).sort(function(a,b){return a.value - b.value})
+      const dailyActivities:ExtractedActivity[] = activities.filter((activity:ExtractedActivity) => activity.startDate === day).sort(function(a:ExtractedActivity,b:ExtractedActivity){return a.value - b.value})
 
       return (
         <>

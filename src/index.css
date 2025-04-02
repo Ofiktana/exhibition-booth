@@ -1015,6 +1015,22 @@ GENERAL
 }
 
 /*************************************************************************************
+COURSE DETAILS PAGE
+**************************************************************************************/
+
+.returnToLearning{
+  padding: 0.5rem;
+}
+
+.cdp-container{
+  display: block;
+  max-width: 1280px;
+  margin: 0.5rem auto;
+}
+
+
+
+/*************************************************************************************
 MEDIA QUERIES
 **************************************************************************************/
 
@@ -1081,6 +1097,8 @@ MEDIA QUERIES
   .container-activity-block{
     width: 100%;
     margin-top: 0.5rem;
+    padding: 0.25rem 1rem;
+    gap: 0.2rem;
     border-bottom-right-radius: 1rem;
     border-bottom-left-radius: 1rem;
   }
@@ -1182,7 +1200,11 @@ MEDIA QUERIES
 
 }
 
-
+@media screen and (min-width: 600px){
+  .buttons-container{
+    padding: 2.5rem;
+  }
+}
 
 
 @media screen and (max-width: 800px) {

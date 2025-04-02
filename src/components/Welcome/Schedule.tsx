@@ -1,25 +1,16 @@
-import { useState, useEffect } from "react"
-import { getAllDocsInCollection } from "../../config/firebase-config"
-import { formatTimeString } from "../../pages/Learning"
-import { data } from "../../pages/Learning"
+import { useContext, useState } from "react"
+import { AppContext } from "../Layouts/DefaultLayout"
 import { FaRegClock } from "react-icons/fa"
+import { ExtractedActivity } from "../Layouts/DefaultLayout"
 
 function Schedule() {
 
   type scheduleItem = {startTime: string, endTime: string, title: string}
 
-  const firstDate = '8/4/2025'
+  const firstDate:string = '8/4/2025'
 
-  const [programs, setPrograms] = useState([])
   const [matchDate, setMatchDate] = useState(firstDate)
-  
 
-  useEffect(() => {
-    getAllDocsInCollection('programs').then((data:any) => {
-      if(!data){return};
-      setPrograms(data)
-    })
-  },[])
 
   function formateDateString(dateString:string){
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -30,16 +21,7 @@ function Schedule() {
     return `${dateOfMonth} ${month} ${year}`
   }
 
-  const activities = programs.map((program:data) => {
-    return {
-      id: program.id,
-      startTime: formatTimeString((new Date(program.data.start.seconds * 1000)).toLocaleTimeString()),
-      endTime: formatTimeString((new Date(program.data.end.seconds * 1000)).toLocaleTimeString()),
-      title: program.data.title,
-      startDate: (new Date(program.data.start.seconds * 1000)).toLocaleDateString(),
-      value: (new Date(program.data.start.seconds * 1000)).valueOf(),
-    }
-  })
+  const activities:any = useContext(AppContext).schedule
 
   function ScheduleItem({ startTime, endTime, title }: scheduleItem){
     return(
@@ -56,9 +38,9 @@ function Schedule() {
   }
 
   
-  const matchDays = [...(new Set(activities.map(activity => activity.startDate)))].sort()  
+  const matchDays:any = [...(new Set(activities.map((activity:ExtractedActivity) => activity.startDate)))].sort()  
   
-  const scheduleItems = activities.filter(item => item.startDate === matchDate).sort(function(a,b){return(a.value - b.value)})
+  const scheduleItems:ExtractedActivity[] = activities.filter((item:ExtractedActivity) => item.startDate === matchDate).sort(function(a:ExtractedActivity,b:ExtractedActivity){return(a.value - b.value)})
 
   function changeMatchDate(day:string){
     setMatchDate(day)
@@ -67,7 +49,7 @@ function Schedule() {
   return (
     <div className="schedule-container">
       <div className="schedule-match-dates">
-        {matchDays.map(day => 
+        {matchDays.map((day:any) => 
           <button 
             key={day}
             onClick={() => {changeMatchDate(day)}} 

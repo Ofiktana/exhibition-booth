@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Welcome from './pages/Welcome'
 import Raffle from './pages/Raffle'
+import LearningCourse from './pages/LearningCourse'
 
 
 
@@ -18,9 +19,9 @@ function App() {
           <Route path='login' element={<Login />}/>
           {/* Wrap the routes below with Auth Required. See protected routes learning */}
           <Route path='learning' element={<Learning />}/>
+          <Route path='learning/:slug' element={<LearningCourse />}/>
           <Route path='leader-board' element={<Welcome />}/>
           <Route path='raffle' element={<Raffle />}/>
-
         </Route>
       </Routes>
     </BrowserRouter>
