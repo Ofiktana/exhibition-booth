@@ -34,7 +34,7 @@ function TextInput({ inputField, onChange }:Prop) {
           name={inputField.name} 
           id={inputField.name} 
           type={inputField.type === 'email' ? 'email' : (inputField.type !== 'password'? 'text' : (passwordVisible ? 'text' : 'password'))} 
-          className='medium-button semi-rounded' 
+          className='medium-button semi-rounded bg-white' 
           placeholder={inputField.placeholder}
           onChange={onChange} 
         />

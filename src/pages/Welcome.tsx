@@ -6,12 +6,19 @@ import NumbersRibbon from "../components/Welcome/NumbersRibbon";
 import Schedule from "../components/Welcome/Schedule";
 import GrowTogether from "../components/Welcome/GrowTogether";
 import EyeCanSee from "../components/Welcome/EyeCanSee";
+import { AppContext } from "../components/Layouts/DefaultLayout";
+import { useContext } from 'react';
 
 function Welcome() {
+  const user = useContext(AppContext).user 
+  //This is temporary, user should come from Firebase { auth }, not AppContext
+  const firstName = user.displayName.split(' ')[0]
+
+
   return (
     <div className="main-bg-light">
       <div className="main-bg-light max-width-1200px">
-        <TitleText left='Hello' right=''/>
+        <TitleText left='Hello' right={firstName}/>
         <HeroSection />
         <div className="time-location-container">
           <div className="tlc-sub-container">

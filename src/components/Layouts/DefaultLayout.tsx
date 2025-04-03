@@ -47,9 +47,9 @@ export function formatTimeString(text:string){
   return (text.slice(0,-2)).slice(0,-4) + ' ' + text.slice(-2).toLowerCase()
 }
 
-const AppContext = createContext({learning: [], schedule: []})
+const AppContext = createContext({user: {displayName: ''}, learning: [], schedule: []})
 
-function DefaultLayout() {
+function DefaultLayout({ user }:any) {
 
   const [programs, setPrograms] = useState([])
   const currentPath = useLocation().pathname
@@ -94,7 +94,11 @@ function DefaultLayout() {
   })
 
   return (
-    <AppContext.Provider value={{learning: learningActivities, schedule: fullSchedule}}>
+    <AppContext.Provider value={{
+      user: user, 
+      learning: learningActivities, 
+      schedule: fullSchedule
+    }}>
       <Header />
       <main>
         <Outlet />
