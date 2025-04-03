@@ -6,10 +6,13 @@ import Login from './pages/Login'
 import Welcome from './pages/Welcome'
 import Raffle from './pages/Raffle'
 import LearningCourse from './pages/LearningCourse'
+import { auth } from './config/firebase-config'
 
 
 
 function App() {
+
+  const user:any = auth.currentUser
 
   return (
     <BrowserRouter>

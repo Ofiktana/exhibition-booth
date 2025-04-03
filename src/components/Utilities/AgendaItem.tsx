@@ -10,7 +10,13 @@ function AgendaItem({ fields }:any) {
       <div className="backdrop semi-dark-border">
         <div className="container-outer">
           <div className="container-top-block">
-            <img src={fields.imageURL} alt={`display image for ${fields.title}`} width='100%' height='100%'/>
+            <img 
+              src={fields.imageURL} 
+              alt={`display image for ${fields.title}`} 
+              width='100%' 
+              height='100%'
+              className='w-full h-full'
+            />
           </div>
           <div className="container-activity-block">
           <div className="activity-title">

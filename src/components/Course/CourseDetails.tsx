@@ -19,7 +19,7 @@ function CourseDetails(props:ExtractedActivity) {
             <MdKeyboardDoubleArrowLeft className="text-2xl" /> Learning Programs
           </NavLink>
         </div>
-        <div className="flex flex-col sm:flex-row gap-2 max-w-[1280px]">
+        <div className="flex flex-col sm:flex-row max-w-[1280px]">
           <div
             className="course-details-container-1 
             w-full flex flex-col sm:flex-col-reverse gap-5 items-center justify-start sm:justify-end mt-2"
