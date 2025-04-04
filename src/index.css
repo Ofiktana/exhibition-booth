@@ -262,7 +262,7 @@ GENERAL
 .user-full-name{
   color: var(--primary-green-dark);
   font-family: inherit;
-  height: 1.25em;
+  height: 1.25rem;
 }
 
 .user-description{
@@ -943,7 +943,8 @@ GENERAL
   padding: 0.5rem 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  gap: 0.25rem;
   /* align-items: center; */
   /* border: 1px solid brown; */
 }
@@ -969,7 +970,6 @@ GENERAL
 .activity-summary{
   font-size: 0.9em;
   color: var(--primary-green-dark);
-  height: 2rem;
   min-width: 100%;
   width: 100%;
   margin-bottom: 0.25rem;
